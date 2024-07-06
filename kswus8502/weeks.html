@@ -49,16 +49,21 @@
     function throttle(cb, delay) {
       let timer;
 
-      return () => {
-        // 이 부분을 작성하시오.
+      return (...args) => {
+        if(timer) return;
+        timer = setTimeout(() =>{
+          cb(...args);
+          timer = null;
+        }, delay)
       }
     }
 
     function debounce(cb, delay) {
       let timer;
 
-      return () => {
-        // 이 부분을 작성하시오.
+      return (...args) => {
+        if (timer) clearTimeout(time);
+        timer = setTimeout(cb, delay, ...args);
       }
     }
   </script>
