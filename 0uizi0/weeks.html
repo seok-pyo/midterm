@@ -50,7 +50,11 @@
       let timer;
 
       return () => {
-        // 이 부분을 작성하시오.
+        if (timer) return;
+        timer = setTimeout(() => {
+          cb();
+          timer = null;
+        }, delay);
       }
     }
 
@@ -58,7 +62,11 @@
       let timer;
 
       return () => {
-        // 이 부분을 작성하시오.
+        if (timer) return clearTimeout(timer)
+        timer = setTimeout(() => {
+          cb();
+          timer = null;
+        }, delay);
       }
     }
   </script>
