@@ -1,3 +1,12 @@
 export const reduce = (array, fn, initValue) => {
-  // 이 부분을 작성하시오.
+  if (initValue === undefined) {
+    initValue = array[0];
+    array = array.slice(1);
+  }
+
+  for (let i = 0; i < array.length; i += 1) {
+    initValue = fn(initValue, array[i]);
+  }
+
+  return initValue;
 };
