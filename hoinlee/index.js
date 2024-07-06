@@ -1,4 +1,3 @@
-import assert from 'assert';
 export { keyPair } from './keyPair.js';
 export { ProxyEmp } from './ProxyEmp.js';
 export { reduce } from './reduce.js';
