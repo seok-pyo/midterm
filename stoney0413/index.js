@@ -8,6 +8,7 @@ export { telfmt, searchByKoreanInitialSound } from './regexp.js';
 
 Array.prototype.mapBy = function (k) {
   // 이 부분을 작성하시오.
+  return this.filter((e) => this[k] === e);
 };
 
 Array.prototype.groupBy = function (gfn) {
