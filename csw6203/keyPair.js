@@ -40,12 +40,12 @@ export const keyPair = (arr, n) => {
 // console.log(keyPair([0,1, 3, 3, 4, 5], 9)); //4,5
 
 //곱셈 예제
-console.log(keyPair([1, 3, 3, 4, 5], 12), [1, 3]);
-console.log(keyPair([1, 3, 4, 5], 15), [1, 3]);
-console.log(keyPair([5, 4, 3, 1], 15), [0, 2]);
-console.log(keyPair([1, 3, 4, 5], 4), [0, 2]);
-console.log(keyPair([1, 4, 45, 6, 10, 8], 450), [2, 4]);
-console.log(keyPair([1, 2, 4, 3, 6], 6), [1, 3]);
-console.log(keyPair([1, 2, 3, 4, 5, 7], 14), [1, 5]);
+// console.log(keyPair([1, 3, 3, 4, 5], 12), [1, 3]);
+// console.log(keyPair([1, 3, 4, 5], 15), [1, 3]);
+// console.log(keyPair([5, 4, 3, 1], 15), [0, 2]);
+// console.log(keyPair([1, 3, 4, 5], 4), [0, 2]);
+// console.log(keyPair([1, 4, 45, 6, 10, 8], 450), [2, 4]);
+// console.log(keyPair([1, 2, 4, 3, 6], 6), [1, 3]);
+// console.log(keyPair([1, 2, 3, 4, 5, 7], 14), [1, 5]);
 
 
