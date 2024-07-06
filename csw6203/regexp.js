@@ -1,5 +1,6 @@
 export function telfmt(tel) {
   // 이 부분을 작성하시오.
+  
 }
 
 const ㄱㄴㄷ = 'ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ';
