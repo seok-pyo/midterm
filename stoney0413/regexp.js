@@ -21,6 +21,7 @@ const 힣 = '힣'.charCodeAt(0);
 export function searchByKoreanInitialSound(data, first = '') {
   const r = [...first].reduce((acc, cur) => {
     let idx = ㄱㄴㄷ.indexOf(cur) ? ㄱㄴㄷ.indexOf(cur) : cur;
+
     const S = 가나다[idx].charCodeAt(0);
     const E = idx === 가나다.length ? 힣 : 가나다[idx + 1].charCodeAt(0) - 1;
 
