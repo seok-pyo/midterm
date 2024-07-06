@@ -14,3 +14,4 @@ Array.prototype.mapBy = function (k) {
 Array.prototype.groupBy = function (gfn) {
   // 이 부분을 작성하시오.
 };
+
