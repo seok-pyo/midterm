@@ -1,3 +1,5 @@
+// import { cal } from './cal';
+
 export function telfmt(tel) {
   const len = tel.length;
 

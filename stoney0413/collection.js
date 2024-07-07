@@ -8,7 +8,7 @@ class Collection {
     return this.#arr;
   }
 
-  get _len() {
+  get size() {
     return this.#arr.length;
   }
 
@@ -16,8 +16,7 @@ class Collection {
     if (this.#isStack()) {
       return this.#arr.join(',');
     }
-
-    return this.#arr.join();
+    return `[${this.#arr.join(',')}]`;
   }
 
   #isStack() {
@@ -25,7 +24,7 @@ class Collection {
   }
 
   *[Symbol.iterator]() {
-    for (let i = this._len - 1; i >= 0; i -= 1) {
+    for (let i = this.size - 1; i >= 0; i -= 1) {
       yield this._arr[i];
     }
   }
@@ -33,21 +32,32 @@ class Collection {
   iterator() {
     return this[Symbol.iterator]();
   }
+
+  get peek() {
+    if (this.#isStack()) {
+      return this._arr[this._arr.length - 1];
+    }
+    return this._arr[0];
+  }
+
+  clear() {
+    this._arr.length = 0;
+  }
+
+  get isEmpty() {
+    if (this.size === 0) return true;
+    else return false;
+  }
 }
 
 export class Stack extends Collection {
   push(v) {
-    // this._arr.push(v);
     this._arr.push(v);
-    return this._arr;
+    return this;
   }
 
   pop() {
     return this._arr.pop();
-  }
-
-  get peek() {
-    return this._arr[this._arr.length - 1];
   }
 
   get poll() {
@@ -57,18 +67,25 @@ export class Stack extends Collection {
 
 export class Queue extends Collection {
   enqueue(v) {
-    this._arr.shift(v);
-    return this._arr;
+    this._arr.push(v);
+    return this;
   }
 
   dequeue() {
-    return this._arr.pop();
+    return this._arr.shift();
+  }
+
+  *[Symbol.iterator]() {
+    for (let i = 0; i < this._arr.length; i += 1) {
+      yield this._arr[i];
+    }
   }
 }
 
 export class ArrayList extends Collection {
   add(val, idx) {
-    return this._arr.splice(idx, 0, val);
+    this._arr.splice(idx ? idx : this.size, 0, val);
+    return this;
   }
 
   remove(val) {
@@ -96,6 +113,10 @@ export class ArrayList extends Collection {
     return ArrayList.arrayToList(this._arr);
   }
 
+  toArray() {
+    return this._arr;
+  }
+
   static listToArray(list) {
     let ret = [];
     let node = list;
@@ -119,5 +140,11 @@ export class ArrayList extends Collection {
 
   toString() {
     return ArrayList.arrayToList(this._arr);
+  }
+
+  *[Symbol.iterator]() {
+    for (let i = 0; i < this.size; i += 1) {
+      yield this._arr[i];
+    }
   }
 }

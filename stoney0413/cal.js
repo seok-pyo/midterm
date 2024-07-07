@@ -5,9 +5,10 @@ export function cal(ym) {
 
   // 이 부분을 완성하시오.
   const [y, m] = ym.split('-');
-  const firstDay = new Date(y, m - 1, 2).getDay();
+  const firstDay = new Date(y, m - 1, 1).getDay();
   const lastDay = new Date(y, m, 0).getDate();
 
+  console.log('fd', firstDay, 'ld', lastDay);
   ret += ' '.repeat(firstDay * 3);
 
   for (let i = 1; i <= lastDay; i += 1) {
