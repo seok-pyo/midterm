@@ -44,7 +44,7 @@ assert.deepStrictEqual(
   120
 );
 
-// assert.deepStrictEqual(keyPair([1, 3, 3, 4, 5], 12), [1, 3]);
+assert.deepStrictEqual(keyPair([1, 3, 3, 4, 5], 12), [1, 3]);
 assert.deepStrictEqual(keyPair([1, 3, 4, 5], 15), [1, 3]);
 assert.deepStrictEqual(keyPair([5, 4, 3, 1], 15), [0, 2]);
 assert.deepStrictEqual(keyPair([1, 3, 4, 5], 4), [0, 2]);

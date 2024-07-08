@@ -22,12 +22,17 @@ const 힣 = '힣'.charCodeAt(0);
 
 export function searchByKoreanInitialSound(data, first = '') {
   const r = [...first].reduce((acc, cur) => {
-    let idx = ㄱㄴㄷ.indexOf(cur) ? ㄱㄴㄷ.indexOf(cur) : cur;
+    let idx = ㄱㄴㄷ.includes(cur) ? ㄱㄴㄷ.indexOf(cur) : cur;
 
-    const S = 가나다[idx].charCodeAt(0);
-    const E = idx === 가나다.length ? 힣 : 가나다[idx + 1].charCodeAt(0) - 1;
-
-    return `${acc}[${String.fromCharCode(S)}-${String.fromCharCode(E)}]`;
+    // console.log(typeof idx === 'number');
+    if (typeof idx === 'number') {
+      const S = 가나다[idx].charCodeAt(0);
+      const E =
+        idx === 가나다.length - 1 ? 힣 : 가나다[idx + 1].charCodeAt(0) - 1;
+      return `${acc}[${String.fromCharCode(S)}-${String.fromCharCode(E)}]`;
+    } else {
+      return `${acc}${idx}`;
+    }
   }, '');
   const regExp = new RegExp(r);
 
