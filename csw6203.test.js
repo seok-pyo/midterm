@@ -9,7 +9,7 @@ import {
   cal,
   telfmt,
   searchByKoreanInitialSound,
-} from './tt/index.js';
+} from './csw6203/index.js';
 
 console.log('Name is ');
 console.log('Email is ');
