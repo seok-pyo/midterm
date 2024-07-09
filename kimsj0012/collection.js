@@ -1,7 +1,7 @@
 class Collection {
   #arr;
   constructor(...args) {
-    // 이 부분을 완성하시오.
+    return (this.#arr = Array.isArray(...args) ? args[0] : [...args]);
   }
 
   get _arr() {
@@ -26,13 +26,24 @@ class Collection {
 }
 
 export class Stack extends Collection {
-  push(v) {}
+  push(v) {
+    let stackArr = [v, ...this._arr];
+    return stackArr.toReverse();
+  }
 
-  pop() {}
+  pop() {
+    console.log('pop');
+    return this.shift();
+  }
 
-  get peek() {}
+  // get peek() {}
 
-  get poll() {}
+  // get poll() {}
+
+  clear() {
+    this._arr.length = 0;
+    return this;
+  }
 }
 
 export class Queue extends Collection {
@@ -44,7 +55,9 @@ export class Queue extends Collection {
 export class ArrayList extends Collection {
   add(val, idx) {}
 
-  remove(val) {}
+  remove(val) {
+    return this._arr.filter((e) => e !== val);
+  }
 
   indexOf(val) {}
 
@@ -57,7 +70,12 @@ export class ArrayList extends Collection {
   toList() {}
 
   static listToArray(list) {}
-  static arrayToList(arr) {}
+  static arrayToList(arr) {
+    let node;
+    for (let i = arr.length; i >= 0; i -= 1) {
+      node = !node ? { value: arr[i] } : { value: arr[i], rest: node };
+    }
+  }
 
   toString() {
     return ArrayList.arrayToList(this._arr);
