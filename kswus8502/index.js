@@ -7,7 +7,9 @@ export { cal } from './cal.js';
 export { telfmt, searchByKoreanInitialSound } from './regexp.js';
 
 Array.prototype.mapBy = function (k) {
-  // 이 부분을 작성하시오.
+  const arr = [];
+  for(let element of this) arr.push(element[k])
+  return arr;
 };
 
 Array.prototype.groupBy = function (gfn) {
