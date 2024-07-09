@@ -63,7 +63,6 @@ assert.deepStrictEqual(proxyHong.fullName, 'Kildong LEE');
 assert.deepStrictEqual(proxyHong.firstName, 'Kildong');
 assert.deepStrictEqual(proxyHong.lastName, 'LEE');
 
-const arrOrg = [1, 2, 3, 4, 5];
 const stack = new Stack([1]);
 stack.push(2).push(3).push(4).push(5);
 assert.deepStrictEqual([...stack], [5, 4, 3, 2, 1]);

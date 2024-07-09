@@ -1,3 +1,11 @@
 export const reduce = (array, fn, initValue) => {
-  // 이 부분을 작성하시오.
+  let acc = initValue ?? array[0];
+  let startIdx = initValue ? 0 : 1;
+
+  if (initValue === 0) startIdx = 0;
+  for (let i = 0; i < array.length; i += 1){
+    acc = fn(acc, array[i], i, initValue)
+  }
+
+  return acc;
 };

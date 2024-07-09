@@ -5,11 +5,19 @@ export class ProxyEmp {
   constructor() {
     return new Proxy(this, {
       get(target, prop) {
-        // 이 부분을 작성하시오.
+        if (prop === 'fullName') return `${target.firstName} ${target.lastName}`
+        return target[prop]
       },
 
       set(target, prop, value) {
-        // 이 부분을 작성하시오.
+        if (prop !== 'fullName') target[prop] = value
+        if (!value.includes(' ')) target.lastName = value.toUpperCase()
+        else {
+          const [f, l] = value.split(' ')
+          target.firstName = f
+          target.lastName = l.toUpperCase()
+        }
+        return target
       },
     });
   }

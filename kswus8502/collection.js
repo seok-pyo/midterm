@@ -1,7 +1,7 @@
 class Collection {
   #arr;
   constructor(...args) {
-    // 이 부분을 완성하시오.
+    this.#arr = args || [];
   }
 
   get _arr() {
@@ -26,9 +26,12 @@ class Collection {
 }
 
 export class Stack extends Collection {
-  push(v) {}
+  push(v) {
+  }
 
-  pop() {}
+  pop() {
+    
+  }
 
   get peek() {}
 
@@ -36,9 +39,13 @@ export class Stack extends Collection {
 }
 
 export class Queue extends Collection {
-  enqueue(v) {}
+  enqueue(v) {
+    
+  }
 
-  dequeue() {}
+  dequeue() {
+   
+  }
 }
 
 export class ArrayList extends Collection {
@@ -63,3 +70,4 @@ export class ArrayList extends Collection {
     return ArrayList.arrayToList(this._arr);
   }
 }
+

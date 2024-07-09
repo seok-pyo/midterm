@@ -2,6 +2,7 @@ class Collection {
   #arr;
   constructor(...args) {
     // 이 부분을 완성하시오.
+    this.#arr = args;
   }
 
   get _arr() {

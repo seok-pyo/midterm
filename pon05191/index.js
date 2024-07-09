@@ -1,4 +1,3 @@
-import assert from 'assert';
 export { keyPair } from './keyPair.js';
 export { ProxyEmp } from './ProxyEmp.js';
 export { reduce } from './reduce.js';
@@ -7,9 +6,16 @@ export { cal } from './cal.js';
 export { telfmt, searchByKoreanInitialSound } from './regexp.js';
 
 Array.prototype.mapBy = function (k) {
-  // 이 부분을 작성하시오.
-};
+  return this.map((user) => user[k]);
+}
 
 Array.prototype.groupBy = function (gfn) {
-  // 이 부분을 작성하시오.
+  return this.reduce((result, cur) => {
+    if (result[gfn(cur)] === undefined) {
+      result[gfn(cur)] = [cur];
+      return result;
+    }
+    result[gfn(cur)].push(cur);
+    return result;
+  }, {});
 };
